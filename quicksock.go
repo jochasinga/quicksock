@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 )
 
+// Create a TCP Client that sends a HTTP request to a specified host
 func TCPClient(url string) (*net.TCPConn, error) {
 	fmt.Printf("Connecting to %s", url)
 
@@ -27,6 +28,7 @@ func TCPClient(url string) (*net.TCPConn, error) {
 	return conn, nil
 }
 
+// Create a TCP server on the local host that listens on a specified port
 func TCPServer(port string) (*net.TCPListener, error) {
 
 	addr, err := net.ResolveTCPAddr("tcp4", port)
