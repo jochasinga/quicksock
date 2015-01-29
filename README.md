@@ -14,6 +14,20 @@ $ go get https://github.com/jochasinga/quicksock.git
 Examples
 --------
 
+Creating a general client request to google.com:
+
+```Go
+
+package main
+
+import qs "github.com/jochasinga/quicksock"
+
+func main() {
+        qs.Client("tcp", "google.com", "www", "HEAD / HTTP/1.0\r\n\r\n")
+}
+
+```
+
 Creating a TCP client:
 
 ```Go

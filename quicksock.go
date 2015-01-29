@@ -7,8 +7,32 @@ import (
 	"io/ioutil"
 )
 
+func Client(protocol string, host string, port string, request string) (net.Conn, error) {
+
+	fmt.Printf("Connecting to %s:%d", host, port)
+	if protocol == "tcp" {
+		addr := host + ":" + port
+	}
+	else if protocol == "udp" {
+		// TODO: Handle UDP packet sending
+	}
+	
+	conn, err := net.Dial(protocol, addr)
+	checkError(err)
+
+	_, err := conn.Write([]byte(msg))
+	checkError(err)
+
+	reply, err := iountil.ReadAll(conn)
+	checkError(err)
+
+	fmt.Println(string(reply))
+
+	return conn, nil
+
 // Create a TCP Client that sends a HTTP request to a specified host
 func TCPClient(url string) (*net.TCPConn, error) {
+
 	fmt.Printf("Connecting to %s", url)
 
 	addr, err := net.ResolveTCPAddr("tcp4", url)
@@ -24,7 +48,6 @@ func TCPClient(url string) (*net.TCPConn, error) {
 	checkError(err)
 
 	fmt.Println(string(result))
-
 	return conn, nil
 }
 
