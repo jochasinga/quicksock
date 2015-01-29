@@ -7,7 +7,7 @@ Install
 -------
 ```Shell
 
-$ go get https://github.com/jochasinga/quicksock.git
+$ go get github.com/jochasinga/quicksock
 
 ```
 
