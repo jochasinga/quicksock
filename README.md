@@ -8,6 +8,7 @@ Install
 ```Shell
 
 $ go get github.com/jochasinga/quicksock
+$ go install github.com/jochasinga/quicksock
 
 ```
 
